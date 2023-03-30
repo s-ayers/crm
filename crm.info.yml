@@ -6,3 +6,5 @@ core_version_requirement: ^9 || ^10
 configure: entity.crm_contact_type.collection
 dependencies:
   - name:name
+  - drupal:telephone
+  - address:address

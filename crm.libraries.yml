@@ -2,3 +2,8 @@ crm_email:
   css:
     component:
       css/crm-email-widget.css: {}
+
+crm_telaphone:
+  css:
+    component:
+      css/crm-telaphone-widget.css: {}

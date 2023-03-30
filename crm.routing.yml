@@ -54,3 +54,35 @@ entity.crm_email.settings:
     _title: 'Email'
   requirements:
     _permission: 'administer email'
+
+entity.crm_phone_type.collection:
+  path: '/admin/structure/crm-phone-type'
+  defaults:
+    _entity_list: 'crm_phone_type'
+    _title: 'Phone Type configuration'
+  requirements:
+    _permission: 'administer crm_phone_type'
+
+entity.crm_phone_type.add_form:
+  path: '/admin/structure/crm_phone_type/add'
+  defaults:
+    _entity_form: 'crm_phone_type.add'
+    _title: 'Add a phone type'
+  requirements:
+    _permission: 'administer crm_phone_type'
+
+entity.crm_phone_type.edit_form:
+  path: '/admin/structure/crm-phone-type/{crm_phone_type}'
+  defaults:
+    _entity_form: 'crm_phone_type.edit'
+    _title: 'Edit a phone type'
+  requirements:
+    _permission: 'administer crm_phone_type'
+
+entity.crm_phone_type.delete_form:
+  path: '/admin/structure/crm-phone-type/{crm_phone_type}/delete'
+  defaults:
+    _entity_form: 'crm_phone_type.delete'
+    _title: 'Delete a phone type'
+  requirements:
+    _permission: 'administer crm_phone_type'

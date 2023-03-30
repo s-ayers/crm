@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - crm
+id: crm_contact.emails
+field_name: emails
+entity_type: crm_contact
+type: crm_email
+settings:
+  foo: ''
+module: crm
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

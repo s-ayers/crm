@@ -1,0 +1,21 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - crm.crm_contact_type.individual
+    - field.storage.crm_contact.emails
+  module:
+    - crm
+id: crm_contact.individual.emails
+field_name: emails
+entity_type: crm_contact
+bundle: individual
+label: Emails
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  bar: example
+field_type: crm_email
