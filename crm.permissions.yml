@@ -1,0 +1,19 @@
+administer contact types:
+  title: 'Administer contact types'
+  description: 'Maintain the types of contact entity.'
+  restrict access: true
+delete contact:
+  title: Delete contact
+create contact:
+  title: Create contact
+view contact:
+  title: View contact
+edit contact:
+  title: Edit contact
+
+administer crm_location_type:
+  title: 'Administer location type'
+
+administer email:
+  title: 'Administer email settings'
+  restrict access: true

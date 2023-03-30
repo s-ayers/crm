@@ -1,0 +1,80 @@
+crm.crm_location_type.*:
+  type: config_entity
+  label: Location Type
+  mapping:
+    id:
+      type: string
+      label: ID
+    label:
+      type: label
+      label: Label
+    uuid:
+      type: string
+    description:
+      type: string
+
+# Field storage.
+field.storage_settings.crm_email:
+  type: mapping
+  label: Example storage settings
+  mapping:
+    foo:
+      type: string
+      label: Foo
+
+# Field instance.
+field.field_settings.crm_email:
+  type: mapping
+  label: Example field settings
+  mapping:
+    bar:
+      type: string
+      label: Bar
+
+# Default value.
+field.value.crm_email:
+  type: mapping
+  label: Default value
+  mapping:
+    email:
+      type: email
+      label: Email
+    location_id:
+      type: string
+      label: Location
+    primary:
+      type: boolean
+      label: Primary
+    billing:
+      type: boolean
+      label: Billing
+    hold:
+      type: boolean
+      label: Hold
+    bulk:
+      type: boolean
+      label: Bulk
+    hold_date:
+      type: datetime
+      label: Hold Date
+    reset_date:
+      type: datetime
+      label: Reset Date
+
+# Field widget.
+field.widget.settings.crm_email:
+  type: mapping
+  label: Example widget settings
+  mapping:
+    foo:
+      type: string
+      label: Foo
+
+# Field formatter.
+field.formatter.settings.crm_email_default:
+  type: mapping
+  label: Example formatter settings
+  mapping:
+    foo:
+      type: string
+      label: Foo

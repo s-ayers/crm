@@ -1,0 +1,8 @@
+name: CRM
+type: module
+description: 'Contact and related entities'
+package: CRM
+core_version_requirement: ^9 || ^10
+configure: entity.crm_contact_type.collection
+dependencies:
+  - name:name

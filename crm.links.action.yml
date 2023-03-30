@@ -1,0 +1,17 @@
+crm_contact.type_add:
+  title: 'Add contact type'
+  route_name: entity.crm_contact_type.add_form
+  appears_on:
+    - entity.crm_contact_type.collection
+
+crm_contact.add_page:
+  title: 'Add contact'
+  route_name: entity.crm_contact.add_page
+  appears_on:
+    - entity.crm_contact.collection
+
+entity.crm_location_type.add_form:
+  route_name: 'entity.crm_location_type.add_form'
+  title: 'Add location type'
+  appears_on:
+    - entity.crm_location_type.collection

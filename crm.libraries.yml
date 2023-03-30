@@ -1,0 +1,4 @@
+crm_email:
+  css:
+    component:
+      css/crm-email-widget.css: {}
