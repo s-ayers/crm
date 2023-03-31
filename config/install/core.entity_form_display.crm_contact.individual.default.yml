@@ -1,0 +1,84 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - crm.crm_contact_type.individual
+    - field.field.crm_contact.individual.emails
+    - field.field.crm_contact.individual.external_identifiers
+    - field.field.crm_contact.individual.full_name
+    - field.field.crm_contact.individual.telephones
+  module:
+    - crm_field
+    - name
+id: crm_contact.individual.default
+targetEntityType: crm_contact
+bundle: individual
+mode: default
+content:
+  created:
+    type: datetime_timestamp
+    weight: 5
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  emails:
+    type: crm_email
+    weight: 2
+    region: content
+    settings:
+      foo: bar
+    third_party_settings: {  }
+  external_identifiers:
+    type: crm_external_identifier
+    weight: 4
+    region: content
+    settings:
+      foo: bar
+    third_party_settings: {  }
+  full_name:
+    type: name_default
+    weight: 0
+    region: content
+    settings:
+      override_field_settings: false
+      labels:
+        title: Title
+        given: Given
+        middle: 'Middle name(s)'
+        family: Family
+        generational: Generational
+        credentials: Credentials
+      widget_layout: stacked
+      show_component_required_marker: false
+      credentials_inline: false
+      size:
+        title: 6
+        given: 20
+        middle: 20
+        family: 20
+        generational: 5
+        credentials: 35
+      title_display:
+        title: description
+        given: description
+        middle: description
+        family: description
+        generational: description
+        credentials: description
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    weight: 1
+    region: content
+    settings:
+      display_label: false
+    third_party_settings: {  }
+  telephones:
+    type: crm_telephone
+    weight: 3
+    region: content
+    settings:
+      foo: bar
+    third_party_settings: {  }
+hidden:
+  name: true

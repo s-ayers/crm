@@ -13,7 +13,7 @@ use Symfony\Component\Validator\ConstraintViolationInterface;
  *
  * @FieldWidget(
  *   id = "crm_email",
- *   label = @Translation("Email"),
+ *   label = @Translation("CRM Email"),
  *   field_types = {"crm_email"},
  * )
  */

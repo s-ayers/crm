@@ -1,0 +1,21 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - crm.crm_contact_type.individual
+    - field.storage.crm_contact.external_identifiers
+  module:
+    - crm_field
+id: crm_contact.individual.external_identifiers
+field_name: external_identifiers
+entity_type: crm_contact
+bundle: individual
+label: 'External Identifiers'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  bar: example
+field_type: crm_external_identifier

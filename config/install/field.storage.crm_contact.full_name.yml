@@ -10,7 +10,7 @@ entity_type: crm_contact
 type: name
 settings: {  }
 module: name
-locked: false
+locked: true
 cardinality: 1
 translatable: true
 indexes: {  }

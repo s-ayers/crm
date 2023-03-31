@@ -1,0 +1,21 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - crm.crm_contact_type.individual
+    - field.storage.crm_contact.telephones
+  module:
+    - crm_field
+id: crm_contact.individual.telephones
+field_name: telephones
+entity_type: crm_contact
+bundle: individual
+label: Telephones
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  bar: example
+field_type: crm_telephone

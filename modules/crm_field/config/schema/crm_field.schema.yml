@@ -156,3 +156,51 @@ field.formatter.settings.crm_telephone_default:
     foo:
       type: string
       label: Foo
+
+# Field storage.
+field.storage_settings.crm_external_identifier:
+  type: mapping
+  label: Example storage settings
+  mapping:
+    foo:
+      type: string
+      label: Foo
+
+# Field instance.
+field.field_settings.crm_external_identifier:
+  type: mapping
+  label: Example field settings
+  mapping:
+    bar:
+      type: string
+      label: Bar
+
+# Default value.
+field.value.crm_external_identifier:
+  type: mapping
+  label: Default value
+  mapping:
+    source:
+      type: string
+      label: Source
+    identifier:
+      type: string
+      label: Identifier
+
+# Field widget.
+field.widget.settings.crm_external_identifier:
+  type: mapping
+  label: Example widget settings
+  mapping:
+    foo:
+      type: string
+      label: Foo
+
+# Field formatter.
+field.formatter.settings.crm_external_identifier_default:
+  type: mapping
+  label: Example formatter settings
+  mapping:
+    foo:
+      type: string
+      label: Foo

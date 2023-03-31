@@ -3,14 +3,15 @@ status: true
 dependencies:
   module:
     - crm
-id: crm_contact.emails
-field_name: emails
+    - crm_field
+id: crm_contact.external_identifiers
+field_name: external_identifiers
 entity_type: crm_contact
-type: crm_email
+type: crm_external_identifier
 settings:
-  foo: ''
-module: crm
-locked: true
+  foo: example
+module: crm_field
+locked: false
 cardinality: -1
 translatable: true
 indexes: {  }

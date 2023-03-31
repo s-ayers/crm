@@ -7,3 +7,8 @@ crm_telephone:
   css:
     component:
       css/crm-telephone-widget.css: {}
+
+crm_external_identifier:
+  css:
+    component:
+      css/crm-external-identifier-widget.css: {}

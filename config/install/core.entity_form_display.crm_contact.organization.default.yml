@@ -1,0 +1,59 @@
+uuid: b5140ab7-cb32-4ed8-bc87-4cbfa3dee3e9
+langcode: en
+status: true
+dependencies:
+  config:
+    - crm.crm_contact_type.organization
+    - field.field.crm_contact.organization.emails
+    - field.field.crm_contact.organization.external_identifiers
+    - field.field.crm_contact.organization.telephones
+  module:
+    - crm_field
+id: crm_contact.organization.default
+targetEntityType: crm_contact
+bundle: organization
+mode: default
+content:
+  created:
+    type: datetime_timestamp
+    weight: 5
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  emails:
+    type: crm_email
+    weight: 2
+    region: content
+    settings:
+      foo: bar
+    third_party_settings: {  }
+  external_identifiers:
+    type: crm_external_identifier
+    weight: 4
+    region: content
+    settings:
+      foo: bar
+    third_party_settings: {  }
+  name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    weight: 1
+    region: content
+    settings:
+      display_label: false
+    third_party_settings: {  }
+  telephones:
+    type: crm_telephone
+    weight: 3
+    region: content
+    settings:
+      foo: bar
+    third_party_settings: {  }
+hidden: {  }

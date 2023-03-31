@@ -3,13 +3,14 @@ status: true
 dependencies:
   module:
     - crm
-id: crm_contact.emails
-field_name: emails
+    - crm_field
+id: crm_contact.telephones
+field_name: telephones
 entity_type: crm_contact
-type: crm_email
+type: crm_telephone
 settings:
-  foo: ''
-module: crm
+  foo: example
+module: crm_field
 locked: true
 cardinality: -1
 translatable: true

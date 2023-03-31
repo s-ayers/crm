@@ -15,7 +15,7 @@ use Drupal\Core\TypedData\DataDefinition;
  *
  * @FieldType(
  *   id = "crm_email",
- *   label = @Translation("Email"),
+ *   label = @Translation("CRM Email"),
  *   category = @Translation("General"),
  *   default_widget = "crm_email",
  *   default_formatter = "crm_email_default"
