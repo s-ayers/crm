@@ -1,4 +1,4 @@
-crm.crm_location_type.*:
+crm_field.crm_location_type.*:
   type: config_entity
   label: Location Type
   mapping:
@@ -79,7 +79,7 @@ field.formatter.settings.crm_email_default:
       type: string
       label: Foo
 
-crm.crm_phone_type.*:
+crm_field.crm_phone_type.*:
   type: config_entity
   label: Phone Type
   mapping:
@@ -95,7 +95,7 @@ crm.crm_phone_type.*:
       type: string
 
 # Field storage.
-field.storage_settings.crm_telaphone:
+field.storage_settings.crm_telephone:
   type: mapping
   label: Example storage settings
   mapping:
@@ -104,7 +104,7 @@ field.storage_settings.crm_telaphone:
       label: Foo
 
 # Field instance.
-field.field_settings.crm_telaphone:
+field.field_settings.crm_telephone:
   type: mapping
   label: Example field settings
   mapping:
@@ -113,7 +113,7 @@ field.field_settings.crm_telaphone:
       label: Bar
 
 # Default value.
-field.value.crm_telaphone:
+field.value.crm_telephone:
   type: mapping
   label: Default value
   mapping:
@@ -140,7 +140,7 @@ field.value.crm_telaphone:
       label: Mobile Provider
 
 # Field widget.
-field.widget.settings.crm_telaphone:
+field.widget.settings.crm_telephone:
   type: mapping
   label: Example widget settings
   mapping:
@@ -149,7 +149,7 @@ field.widget.settings.crm_telaphone:
       label: Foo
 
 # Field formatter.
-field.formatter.settings.crm_telaphone_default:
+field.formatter.settings.crm_telephone_default:
   type: mapping
   label: Example formatter settings
   mapping:

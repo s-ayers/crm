@@ -1,14 +1,14 @@
 <?php
 
-namespace Drupal\crm;
+namespace Drupal\crm_field;
 
 use Drupal\Core\Config\Entity\ConfigEntityListBuilder;
 use Drupal\Core\Entity\EntityInterface;
 
 /**
- * Provides a listing of location types.
+ * Provides a listing of phone types.
  */
-class CrmLocationTypeListBuilder extends ConfigEntityListBuilder {
+class CrmPhoneTypeListBuilder extends ConfigEntityListBuilder {
 
   /**
    * {@inheritdoc}
@@ -24,7 +24,7 @@ class CrmLocationTypeListBuilder extends ConfigEntityListBuilder {
    * {@inheritdoc}
    */
   public function buildRow(EntityInterface $entity) {
-    /** @var \Drupal\crm\CrmLocationTypeInterface $entity */
+    /** @var \Drupal\crm_field\CrmPhoneTypeInterface $entity */
     $row['label'] = $entity->label();
     $row['id'] = $entity->id();
     $row['status'] = $entity->status() ? $this->t('Enabled') : $this->t('Disabled');

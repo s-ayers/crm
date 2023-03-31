@@ -1,23 +1,23 @@
 <?php
 
-namespace Drupal\crm\Plugin\Field\FieldWidget;
+namespace Drupal\crm_field\Plugin\Field\FieldWidget;
 
 use Drupal\Core\Field\FieldItemListInterface;
 use Drupal\Core\Field\WidgetBase;
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\crm\Plugin\Field\FieldType\CRMTelaphoneItem;
+use Drupal\crm_field\Plugin\Field\FieldType\CRMTelephoneItem;
 use Symfony\Component\Validator\ConstraintViolationInterface;
 
 /**
- * Defines the 'crm_telaphone' field widget.
+ * Defines the 'crm_telephone' field widget.
  *
  * @FieldWidget(
- *   id = "crm_telaphone",
- *   label = @Translation("CRM Telaphone"),
- *   field_types = {"crm_telaphone"},
+ *   id = "crm_telephone",
+ *   label = @Translation("CRM telephone"),
+ *   field_types = {"crm_telephone"},
  * )
  */
-class CRMTelaphoneWidget extends WidgetBase {
+class CRMTelephoneWidget extends WidgetBase {
 
   /**
    * {@inheritdoc}
@@ -68,18 +68,22 @@ class CRMTelaphoneWidget extends WidgetBase {
     $element['type'] = [
       '#type' => 'select',
       '#title' => $this->t('Type'),
-      '#options' => ['' => $this->t('- Select a value -')] + CRMTelaphoneItem::allowedTypeValues(),
-      '#default_value' => isset($items[$delta]->type) ? $items[$delta]->type : NULL,
+      '#options' => CRMTelephoneItem::allowedTypeValues(),
+      '#default_value' => isset($items[$delta]->type) ? $items[$delta]->type : 'phone',
+      '#required' => TRUE,
     ];
 
     $element['location_id'] = [
-      '#type' => 'textfield',
+      '#type' => 'select',
       '#title' => $this->t('Location'),
-      '#default_value' => isset($items[$delta]->location_id) ? $items[$delta]->location_id : NULL,
+      '#options' => CRMTelephoneItem::allowedLocationValues(),
+      '#default_value' => isset($items[$delta]->location_id) ? $items[$delta]->location_id : 'main',
+      '#required' => TRUE,
     ];
 
     $element['primary'] = [
-      '#type' => 'checkbox',
+      '#type' => 'radios',
+      '#options' => [1 => $this->t('Primary')],
       '#title' => $this->t('Primary'),
       '#default_value' => isset($items[$delta]->primary) ? $items[$delta]->primary : NULL,
     ];
@@ -93,13 +97,13 @@ class CRMTelaphoneWidget extends WidgetBase {
     $element['mobile_provider_id'] = [
       '#type' => 'select',
       '#title' => $this->t('Mobile Provider'),
-      '#options' => ['' => $this->t('- None -')] + CRMTelaphoneItem::allowedMobileProviderValues(),
+      '#options' => ['' => $this->t('- None -')] + CRMTelephoneItem::allowedMobileProviderValues(),
       '#default_value' => isset($items[$delta]->mobile_provider_id) ? $items[$delta]->mobile_provider_id : NULL,
     ];
 
     $element['#theme_wrappers'] = ['container', 'form_element'];
-    $element['#attributes']['class'][] = 'crm-telaphone-elements';
-    $element['#attached']['library'][] = 'crm/crm_telaphone';
+    $element['#attributes']['class'][] = 'crm-telephone-elements';
+    $element['#attached']['library'][] = 'crm/crm_telephone';
 
     return $element;
   }

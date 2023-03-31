@@ -1,21 +1,21 @@
 <?php
 
-namespace Drupal\crm\Plugin\Field\FieldFormatter;
+namespace Drupal\crm_field\Plugin\Field\FieldFormatter;
 
 use Drupal\Core\Field\FieldItemListInterface;
 use Drupal\Core\Field\FormatterBase;
-use Drupal\crm\Plugin\Field\FieldType\CRMTelaphoneItem;
+use Drupal\crm_field\Plugin\Field\FieldType\CRMtelephoneItem;
 
 /**
- * Plugin implementation of the 'crm_telaphone_key_value' formatter.
+ * Plugin implementation of the 'crm_telephone_key_value' formatter.
  *
  * @FieldFormatter(
- *   id = "crm_telaphone_key_value",
+ *   id = "crm_telephone_key_value",
  *   label = @Translation("Key-value"),
- *   field_types = {"crm_telaphone"}
+ *   field_types = {"crm_telephone"}
  * )
  */
-class CRMTelaphoneKeyValueFormatter extends FormatterBase {
+class CRMTelephoneKeyValueFormatter extends FormatterBase {
 
   /**
    * {@inheritdoc}
@@ -72,7 +72,7 @@ class CRMTelaphoneKeyValueFormatter extends FormatterBase {
 
       // Type.
       if ($item->type) {
-        $allowed_values = CRMTelaphoneItem::allowedTypeValues();
+        $allowed_values = CRMtelephoneItem::allowedTypeValues();
 
         $table['#rows'][] = [
           'data' => [
@@ -154,7 +154,7 @@ class CRMTelaphoneKeyValueFormatter extends FormatterBase {
 
       // Mobile Provider.
       if ($item->mobile_provider_id) {
-        $allowed_values = CRMTelaphoneItem::allowedMobileProviderValues();
+        $allowed_values = CRMtelephoneItem::allowedMobileProviderValues();
 
         $table['#rows'][] = [
           'data' => [

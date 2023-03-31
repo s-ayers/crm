@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\crm\Plugin\Field\FieldType;
+namespace Drupal\crm_field\Plugin\Field\FieldType;
 
 use Drupal\Component\Utility\Random;
 use Drupal\Core\Field\FieldDefinitionInterface;

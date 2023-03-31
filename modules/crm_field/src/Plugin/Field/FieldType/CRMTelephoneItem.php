@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\crm\Plugin\Field\FieldType;
+namespace Drupal\crm_field\Plugin\Field\FieldType;
 
 use Drupal\Component\Utility\Random;
 use Drupal\Core\Field\FieldDefinitionInterface;
@@ -10,17 +10,17 @@ use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\TypedData\DataDefinition;
 
 /**
- * Defines the 'crm_telaphone' field type.
+ * Defines the 'crm_telephone' field type.
  *
  * @FieldType(
- *   id = "crm_telaphone",
- *   label = @Translation("CRM Telaphone"),
+ *   id = "crm_telephone",
+ *   label = @Translation("CRM Telephone"),
  *   category = @Translation("General"),
- *   default_widget = "crm_telaphone",
- *   default_formatter = "crm_telaphone_default"
+ *   default_widget = "crm_telephone",
+ *   default_formatter = "crm_telephone_default"
  * )
  */
-class CRMTelaphoneItem extends FieldItemBase {
+class CRMTelephoneItem extends FieldItemBase {
 
   /**
    * {@inheritdoc}
@@ -76,24 +76,7 @@ class CRMTelaphoneItem extends FieldItemBase {
     if ($this->phone !== NULL) {
       return FALSE;
     }
-    elseif ($this->phone_ext !== NULL) {
-      return FALSE;
-    }
-    elseif ($this->type !== NULL) {
-      return FALSE;
-    }
-    elseif ($this->location_id !== NULL) {
-      return FALSE;
-    }
-    elseif ($this->primary == 1) {
-      return FALSE;
-    }
-    elseif ($this->billing == 1) {
-      return FALSE;
-    }
-    elseif ($this->mobile_provider_id !== NULL) {
-      return FALSE;
-    }
+
     return TRUE;
   }
 
@@ -128,13 +111,13 @@ class CRMTelaphoneItem extends FieldItemBase {
 
     $options['phone']['NotBlank'] = [];
 
-    $options['type']['AllowedValues'] = array_keys(CRMTelaphoneItem::allowedTypeValues());
-
+    $options['type']['AllowedValues'] = array_keys(CRMTelephoneItem::allowedTypeValues());
     $options['type']['NotBlank'] = [];
 
     $options['location_id']['NotBlank'] = [];
+    $options['location_id']['AllowedValues'] = array_keys(CRMTelephoneItem::allowedLocationValues());
 
-    $options['mobile_provider_id']['AllowedValues'] = array_keys(CRMTelaphoneItem::allowedMobileProviderValues());
+    $options['mobile_provider_id']['AllowedValues'] = array_keys(CRMTelephoneItem::allowedMobileProviderValues());
 
     $constraint_manager = \Drupal::typedDataManager()->getValidationConstraintManager();
     $constraints[] = $constraint_manager->create('ComplexData', $options);
@@ -217,11 +200,33 @@ class CRMTelaphoneItem extends FieldItemBase {
    *   The list of allowed values.
    */
   public static function allowedTypeValues() {
-    return [
-      'alpha' => t('Alpha'),
-      'beta' => t('Beta'),
-      'gamma' => t('Gamma'),
-    ];
+    $options = [];
+    $phone_types = \Drupal::service('entity_type.manager')
+      ->getStorage('crm_phone_type')
+      ->loadMultiple();
+    foreach ($phone_types as $phone_type) {
+      $options[$phone_type->id()] = $phone_type->label();
+    }
+
+    return $options;
+  }
+
+  /**
+   * Returns allowed values for 'type' sub-field.
+   *
+   * @return array
+   *   The list of allowed values.
+   */
+  public static function allowedLocationValues() {
+    $options = [];
+    $location_types = \Drupal::service('entity_type.manager')
+      ->getStorage('crm_location_type')
+      ->loadMultiple();
+    foreach ($location_types as $location_type) {
+      $options[$location_type->id()] = $location_type->label();
+    }
+
+    return $options;
   }
 
   /**

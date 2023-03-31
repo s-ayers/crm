@@ -1,9 +1,9 @@
 <?php
 
-namespace Drupal\crm\Entity;
+namespace Drupal\crm_field\Entity;
 
 use Drupal\Core\Config\Entity\ConfigEntityBase;
-use Drupal\crm\CrmPhoneTypeInterface;
+use Drupal\crm_field\CrmPhoneTypeInterface;
 
 /**
  * Defines the phone type entity type.
@@ -19,10 +19,10 @@ use Drupal\crm\CrmPhoneTypeInterface;
  *     plural = "@count phone types",
  *   ),
  *   handlers = {
- *     "list_builder" = "Drupal\crm\CrmPhoneTypeListBuilder",
+ *     "list_builder" = "Drupal\crm_field\CrmPhoneTypeListBuilder",
  *     "form" = {
- *       "add" = "Drupal\crm\Form\CrmPhoneTypeForm",
- *       "edit" = "Drupal\crm\Form\CrmPhoneTypeForm",
+ *       "add" = "Drupal\crm_field\Form\CrmPhoneTypeForm",
+ *       "edit" = "Drupal\crm_field\Form\CrmPhoneTypeForm",
  *       "delete" = "Drupal\Core\Entity\EntityDeleteForm"
  *     }
  *   },

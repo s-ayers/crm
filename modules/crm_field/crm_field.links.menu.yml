@@ -1,0 +1,11 @@
+entity.crm_location_type.overview:
+  title: Location Types
+  parent: system.admin_structure
+  description: 'List of location types to extend site functionality.'
+  route_name: entity.crm_location_type.collection
+
+entity.crm_phone_type.overview:
+  title: Phone Types
+  parent: system.admin_structure
+  description: 'List of phone types to extend site functionality.'
+  route_name: entity.crm_phone_type.collection

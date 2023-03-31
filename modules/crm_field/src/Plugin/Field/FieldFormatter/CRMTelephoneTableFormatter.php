@@ -1,21 +1,21 @@
 <?php
 
-namespace Drupal\crm\Plugin\Field\FieldFormatter;
+namespace Drupal\crm_field\Plugin\Field\FieldFormatter;
 
 use Drupal\Core\Field\FieldItemListInterface;
 use Drupal\Core\Field\FormatterBase;
-use Drupal\crm\Plugin\Field\FieldType\CRMTelaphoneItem;
+use Drupal\crm_field\Plugin\Field\FieldType\CRMtelephoneItem;
 
 /**
- * Plugin implementation of the 'crm_telaphone_table' formatter.
+ * Plugin implementation of the 'crm_telephone_table' formatter.
  *
  * @FieldFormatter(
- *   id = "crm_telaphone_table",
+ *   id = "crm_telephone_table",
  *   label = @Translation("Table"),
- *   field_types = {"crm_telaphone"}
+ *   field_types = {"crm_telephone"}
  * )
  */
-class CRMTelaphoneTableFormatter extends FormatterBase {
+class CRMTelephoneTableFormatter extends FormatterBase {
 
   /**
    * {@inheritdoc}
@@ -46,7 +46,7 @@ class CRMTelaphoneTableFormatter extends FormatterBase {
       $row[]['#markup'] = $item->phone_ext;
 
       if ($item->type) {
-        $allowed_values = CRMTelaphoneItem::allowedTypeValues();
+        $allowed_values = CRMtelephoneItem::allowedTypeValues();
         $row[]['#markup'] = $allowed_values[$item->type];
       }
       else {
@@ -60,7 +60,7 @@ class CRMTelaphoneTableFormatter extends FormatterBase {
       $row[]['#markup'] = $item->billing ? $this->t('Yes') : $this->t('No');
 
       if ($item->mobile_provider_id) {
-        $allowed_values = CRMTelaphoneItem::allowedMobileProviderValues();
+        $allowed_values = CRMtelephoneItem::allowedMobileProviderValues();
         $row[]['#markup'] = $allowed_values[$item->mobile_provider_id];
       }
       else {

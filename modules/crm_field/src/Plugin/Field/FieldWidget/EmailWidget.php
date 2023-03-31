@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\crm\Plugin\Field\FieldWidget;
+namespace Drupal\crm_field\Plugin\Field\FieldWidget;
 
 use Drupal\Core\Datetime\DrupalDateTime;
 use Drupal\Core\Field\FieldItemListInterface;

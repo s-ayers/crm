@@ -3,7 +3,7 @@ crm_email:
     component:
       css/crm-email-widget.css: {}
 
-crm_telaphone:
+crm_telephone:
   css:
     component:
-      css/crm-telaphone-widget.css: {}
+      css/crm-telephone-widget.css: {}

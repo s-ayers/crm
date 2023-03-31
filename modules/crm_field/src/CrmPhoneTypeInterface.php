@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\crm;
+namespace Drupal\crm_field;
 
 use Drupal\Core\Config\Entity\ConfigEntityInterface;
 

@@ -1,0 +1,5 @@
+administer crm_location_type:
+  title: 'Administer location type'
+
+administer crm_phone_type:
+  title: 'Administer phone type'

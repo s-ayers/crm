@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\crm\Plugin\Field\FieldFormatter;
+namespace Drupal\crm_field\Plugin\Field\FieldFormatter;
 
 use Drupal\Core\Datetime\DrupalDateTime;
 use Drupal\Core\Field\FieldItemListInterface;

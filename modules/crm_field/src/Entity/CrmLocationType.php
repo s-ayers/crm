@@ -1,9 +1,9 @@
 <?php
 
-namespace Drupal\crm\Entity;
+namespace Drupal\crm_field\Entity;
 
 use Drupal\Core\Config\Entity\ConfigEntityBase;
-use Drupal\crm\CrmLocationTypeInterface;
+use Drupal\crm_field\CrmLocationTypeInterface;
 
 /**
  * Defines the location type entity type.
@@ -19,10 +19,10 @@ use Drupal\crm\CrmLocationTypeInterface;
  *     plural = "@count location types",
  *   ),
  *   handlers = {
- *     "list_builder" = "Drupal\crm\CrmLocationTypeListBuilder",
+ *     "list_builder" = "Drupal\crm_field\CrmLocationTypeListBuilder",
  *     "form" = {
- *       "add" = "Drupal\crm\Form\CrmLocationTypeForm",
- *       "edit" = "Drupal\crm\Form\CrmLocationTypeForm",
+ *       "add" = "Drupal\crm_field\Form\CrmLocationTypeForm",
+ *       "edit" = "Drupal\crm_field\Form\CrmLocationTypeForm",
  *       "delete" = "Drupal\Core\Entity\EntityDeleteForm"
  *     }
  *   },

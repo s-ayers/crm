@@ -8,7 +8,7 @@ use Drupal\Core\Form\FormStateInterface;
 /**
  * Location Type form.
  *
- * @property \Drupal\crm\CrmLocationTypeInterface $entity
+ * @property \Drupal\crm_field\CrmLocationTypeInterface $entity
  */
 class CrmLocationTypeForm extends EntityForm {
 

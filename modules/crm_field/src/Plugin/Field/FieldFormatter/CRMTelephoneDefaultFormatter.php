@@ -1,23 +1,23 @@
 <?php
 
-namespace Drupal\crm\Plugin\Field\FieldFormatter;
+namespace Drupal\crm_field\Plugin\Field\FieldFormatter;
 
 use Drupal\Core\Field\FieldItemListInterface;
 use Drupal\Core\Field\FormatterBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Url;
-use Drupal\crm\Plugin\Field\FieldType\CRMTelaphoneItem;
+use Drupal\crm_field\Plugin\Field\FieldType\CRMTelephoneItem;
 
 /**
- * Plugin implementation of the 'crm_telaphone_default' formatter.
+ * Plugin implementation of the 'crm_telephone_default' formatter.
  *
  * @FieldFormatter(
- *   id = "crm_telaphone_default",
+ *   id = "crm_telephone_default",
  *   label = @Translation("Default"),
- *   field_types = {"crm_telaphone"}
+ *   field_types = {"crm_telephone"}
  * )
  */
-class CRMTelaphoneDefaultFormatter extends FormatterBase {
+class CRMTelephoneDefaultFormatter extends FormatterBase {
 
   /**
    * {@inheritdoc}
@@ -77,7 +77,7 @@ class CRMTelaphoneDefaultFormatter extends FormatterBase {
       }
 
       if ($item->type) {
-        $allowed_values = CRMTelaphoneItem::allowedTypeValues();
+        $allowed_values = CRMTelephoneItem::allowedTypeValues();
         $element[$delta]['type'] = [
           '#type' => 'item',
           '#title' => $this->t('Type'),
@@ -106,7 +106,7 @@ class CRMTelaphoneDefaultFormatter extends FormatterBase {
       ];
 
       if ($item->mobile_provider_id) {
-        $allowed_values = CRMTelaphoneItem::allowedMobileProviderValues();
+        $allowed_values = CRMTelephoneItem::allowedMobileProviderValues();
         $element[$delta]['mobile_provider_id'] = [
           '#type' => 'item',
           '#title' => $this->t('Mobile Provider'),

@@ -10,13 +10,3 @@ view contact:
   title: View contact
 edit contact:
   title: Edit contact
-
-administer crm_location_type:
-  title: 'Administer location type'
-
-administer email:
-  title: 'Administer email settings'
-  restrict access: true
-
-administer crm_phone_type:
-  title: 'Administer phone type'

@@ -8,7 +8,7 @@ use Drupal\Core\Form\FormStateInterface;
 /**
  * Phone Type form.
  *
- * @property \Drupal\crm\CrmPhoneTypeInterface $entity
+ * @property \Drupal\crm_field\CrmPhoneTypeInterface $entity
  */
 class CrmPhoneTypeForm extends EntityForm {
 
