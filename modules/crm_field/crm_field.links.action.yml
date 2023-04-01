@@ -9,3 +9,9 @@ entity.crm_phone_type.add_form:
   title: 'Add phone type'
   appears_on:
     - entity.crm_phone_type.collection
+
+entity.crm_website_type.add_form:
+  route_name: 'entity.crm_website_type.add_form'
+  title: 'Add website type'
+  appears_on:
+    - entity.crm_website_type.collection

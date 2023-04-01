@@ -3,3 +3,6 @@ administer crm_location_type:
 
 administer crm_phone_type:
   title: 'Administer phone type'
+
+administer crm_website_type:
+  title: 'Administer website type'

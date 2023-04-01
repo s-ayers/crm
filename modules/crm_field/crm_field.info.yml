@@ -6,3 +6,4 @@ core_version_requirement: ^9 || ^10
 dependencies:
   - drupal:telephone
   - address:address
+configure: entity.crm_website_type.collection

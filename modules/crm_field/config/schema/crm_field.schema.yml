@@ -204,3 +204,18 @@ field.formatter.settings.crm_external_identifier_default:
     foo:
       type: string
       label: Foo
+
+crm_field.crm_website_type.*:
+  type: config_entity
+  label: Website Type
+  mapping:
+    id:
+      type: string
+      label: ID
+    label:
+      type: label
+      label: Label
+    uuid:
+      type: string
+    description:
+      type: string

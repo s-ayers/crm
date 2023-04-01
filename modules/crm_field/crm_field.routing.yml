@@ -69,3 +69,43 @@ entity.crm_phone_type.delete_form:
     _title: 'Delete a phone type'
   requirements:
     _permission: 'administer crm_phone_type'
+
+crm.admin_config:
+  path: '/admin/reports/crm'
+  defaults:
+    _controller: '\Drupal\system\Controller\SystemController::systemAdminMenuBlockPage'
+    _title: 'Knowledge'
+  requirements:
+    _permission: 'access knowledge reports'
+
+entity.crm_website_type.collection:
+  path: '/admin/structure/crm-website-type'
+  defaults:
+    _entity_list: 'crm_website_type'
+    _title: 'Website Type configuration'
+  requirements:
+    _permission: 'administer crm_website_type'
+
+entity.crm_website_type.add_form:
+  path: '/admin/structure/crm_website_type/add'
+  defaults:
+    _entity_form: 'crm_website_type.add'
+    _title: 'Add a website type'
+  requirements:
+    _permission: 'administer crm_website_type'
+
+entity.crm_website_type.edit_form:
+  path: '/admin/structure/crm-website-type/{crm_website_type}'
+  defaults:
+    _entity_form: 'crm_website_type.edit'
+    _title: 'Edit a website type'
+  requirements:
+    _permission: 'administer crm_website_type'
+
+entity.crm_website_type.delete_form:
+  path: '/admin/structure/crm-website-type/{crm_website_type}/delete'
+  defaults:
+    _entity_form: 'crm_website_type.delete'
+    _title: 'Delete a website type'
+  requirements:
+    _permission: 'administer crm_website_type'
