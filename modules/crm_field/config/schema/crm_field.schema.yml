@@ -219,3 +219,51 @@ crm_field.crm_website_type.*:
       type: string
     description:
       type: string
+
+# Field storage.
+field.storage_settings.crm_website:
+  type: mapping
+  label: Example storage settings
+  mapping:
+    foo:
+      type: string
+      label: Foo
+
+# Field instance.
+field.field_settings.crm_website:
+  type: mapping
+  label: Example field settings
+  mapping:
+    bar:
+      type: string
+      label: Bar
+
+# Default value.
+field.value.crm_website:
+  type: mapping
+  label: Default value
+  mapping:
+    url:
+      type: uri
+      label: Url
+    type:
+      type: string
+      label: Type
+
+# Field widget.
+field.widget.settings.crm_website:
+  type: mapping
+  label: Example widget settings
+  mapping:
+    foo:
+      type: string
+      label: Foo
+
+# Field formatter.
+field.formatter.settings.crm_website_default:
+  type: mapping
+  label: Example formatter settings
+  mapping:
+    foo:
+      type: string
+      label: Foo

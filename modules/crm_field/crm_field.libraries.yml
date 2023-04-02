@@ -12,3 +12,8 @@ crm_external_identifier:
   css:
     component:
       css/crm-external-identifier-widget.css: {}
+
+crm_website:
+  css:
+    component:
+      css/crm-website-widget.css: {}

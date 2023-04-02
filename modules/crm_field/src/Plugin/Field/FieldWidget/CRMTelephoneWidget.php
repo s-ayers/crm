@@ -62,6 +62,7 @@ class CRMTelephoneWidget extends WidgetBase {
     $element['phone_ext'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Extension'),
+      '#size' => 5,
       '#default_value' => isset($items[$delta]->phone_ext) ? $items[$delta]->phone_ext : NULL,
     ];
 
