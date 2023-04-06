@@ -8,3 +8,14 @@ entity.crm_contact.delete_form:
   group: crm_contact
   title: Delete
   weight: 10
+
+entity.crm_relationship.edit_form:
+  route_name: entity.crm_relationship.edit_form
+  group: crm_relationship
+  title: Edit
+
+entity.crm_relationship.delete_form:
+  route_name: entity.crm_relationship.delete_form
+  group: crm_relationship
+  title: Delete
+  weight: 10

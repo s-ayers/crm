@@ -10,3 +10,16 @@ view contact:
   title: View contact
 edit contact:
   title: Edit contact
+
+administer crm relationship types:
+  title: 'Administer crm relationship types'
+  description: 'Maintain the types of crm relationship entity.'
+  restrict access: true
+delete crm relationship:
+  title: Delete crm relationship
+create crm relationship:
+  title: Create crm relationship
+view crm relationship:
+  title: View crm relationship
+edit crm relationship:
+  title: Edit crm relationship

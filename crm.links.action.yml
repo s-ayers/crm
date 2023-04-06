@@ -9,3 +9,15 @@ crm_contact.add_page:
   route_name: entity.crm_contact.add_page
   appears_on:
     - entity.crm_contact.collection
+
+crm_relationship.type_add:
+  title: 'Add crm relationship type'
+  route_name: entity.crm_relationship_type.add_form
+  appears_on:
+    - entity.crm_relationship_type.collection
+
+crm_relationship.add_page:
+  title: 'Add crm relationship'
+  route_name: entity.crm_relationship.add_page
+  appears_on:
+    - entity.crm_relationship.collection

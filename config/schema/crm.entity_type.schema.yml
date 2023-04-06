@@ -10,3 +10,16 @@ crm_contact.crm_contact_type.*:
       label: 'Label'
     uuid:
       type: string
+
+crm.crm_relationship_type.*:
+  type: config_entity
+  label: 'CRM Relationship type config'
+  mapping:
+    id:
+      type: string
+      label: 'ID'
+    label:
+      type: label
+      label: 'Label'
+    uuid:
+      type: string

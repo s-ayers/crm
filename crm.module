@@ -15,6 +15,9 @@ function crm_contact_theme() {
     'crm_contact' => [
       'render element' => 'elements',
     ],
+    'crm_relationship' => [
+      'render element' => 'elements',
+    ],
   ];
 }
 
@@ -30,6 +33,24 @@ function crm_contact_theme() {
  *   - attributes: HTML attributes for the containing element.
  */
 function template_preprocess_crm_contact(array &$variables) {
+  $variables['view_mode'] = $variables['elements']['#view_mode'];
+  foreach (Element::children($variables['elements']) as $key) {
+    $variables['content'][$key] = $variables['elements'][$key];
+  }
+}
+
+/**
+ * Prepares variables for crm relationship templates.
+ *
+ * Default template: crm-relationship.html.twig.
+ *
+ * @param array $variables
+ *   An associative array containing:
+ *   - elements: An associative array containing the crm relationship information and any
+ *     fields attached to the entity.
+ *   - attributes: HTML attributes for the containing element.
+ */
+function template_preprocess_crm_relationship(array &$variables) {
   $variables['view_mode'] = $variables['elements']['#view_mode'];
   foreach (Element::children($variables['elements']) as $key) {
     $variables['content'][$key] = $variables['elements'][$key];

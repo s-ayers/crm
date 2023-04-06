@@ -15,3 +15,9 @@ crm.admin_config:
   route_name: crm.admin_config
   parent: system.admin_config
   description: 'List and edit CRM configuration.'
+
+entity.crm_relationship_type.collection:
+  title: 'CRM Relationship types'
+  description: 'Manage and CRUD actions on CRM Relationship type.'
+  parent: system.admin_structure
+  route_name: entity.crm_relationship_type.collection
