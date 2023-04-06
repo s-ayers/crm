@@ -42,7 +42,51 @@ class CrmRelationshipTypeForm extends BundleEntityFormBase {
       '#description' => $this->t('A unique machine-readable name for this crm relationship type. It must only contain lowercase letters, numbers, and underscores.'),
     ];
 
+    $form['contact_type_a'] = [
+      '#title' => $this->t('Contact type A'),
+      '#type' => 'select',
+      '#options' => $this->getContactTypeOptions(),
+      '#default_value' => $entity_type->get('contact_type_a'),
+      '#description' => $this->t('The contact type for the first contact in the relationship.'),
+      '#required' => TRUE,
+    ];
+
+    $form['contact_type_b'] = [
+      '#title' => $this->t('Contact type B'),
+      '#type' => 'select',
+      '#options' => $this->getContactTypeOptions(),
+      '#default_value' => $entity_type->get('contact_type_b'),
+      '#description' => $this->t('The contact type for the second contact in the relationship.'),
+      '#required' => TRUE,
+    ];
+
+    $form['label_b_a'] = [
+      '#title' => $this->t('Label A to B'),
+      '#type' => 'textfield',
+      '#default_value' => $entity_type->get('label_b_a'),
+      '#description' => $this->t('The human-readable name of this crm relationship type from contact A to contact B.'),
+      '#required' => TRUE,
+      '#size' => 30,
+    ];
+
+    $form['description'] = [
+      '#title' => $this->t('Description'),
+      '#type' => 'textarea',
+      '#default_value' => $entity_type->get('description'),
+      '#description' => $this->t('A description of this crm relationship type.'),
+    ];
+
     return $this->protectBundleIdElement($form);
+  }
+
+  protected function getContactTypeOptions() {
+    $crm_contact_type = \Drupal::service('entity_type.bundle.info')->getBundleInfo('crm_contact');
+    $options = [];
+    foreach ($crm_contact_type as $type => $label) {
+      $options[$type] = $label['label'];
+    }
+
+    return $options;
   }
 
   /**
@@ -60,10 +104,9 @@ class CrmRelationshipTypeForm extends BundleEntityFormBase {
    */
   public function save(array $form, FormStateInterface $form_state) {
     $entity_type = $this->entity;
-
-    $entity_type->set('id', trim($entity_type->id()));
-    $entity_type->set('label', trim($entity_type->label()));
-
+    $entity_type
+      ->set('id', trim($entity_type->id()))
+      ->set('label', trim($entity_type->label()));
     $status = $entity_type->save();
 
     $t_args = ['%name' => $entity_type->label()];

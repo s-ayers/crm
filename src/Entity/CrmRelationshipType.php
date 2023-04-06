@@ -46,6 +46,10 @@ use Drupal\Core\Config\Entity\ConfigEntityBundleBase;
  *     "id",
  *     "label",
  *     "uuid",
+ *     "contact_type_a",
+ *     "contact_type_b",
+ *     "label_b_a",
+ *     "description",
  *   }
  * )
  */
@@ -64,5 +68,33 @@ class CrmRelationshipType extends ConfigEntityBundleBase {
    * @var string
    */
   protected $label;
+
+  /**
+   * The human-readable name of the crm relationship type.
+   *
+   * @var string
+   */
+  protected $label_b_a;
+
+  /**
+   * The human-readable name of the crm relationship type.
+   *
+   * @var string
+   */
+  protected $contact_type_a;
+
+  /**
+   * The human-readable name of the crm relationship type.
+   *
+   * @var string
+   */
+  protected $contact_type_b;
+
+  /**
+   * The description of the crm relationship type.
+   *
+   * @var string
+   */
+  protected $description;
 
 }

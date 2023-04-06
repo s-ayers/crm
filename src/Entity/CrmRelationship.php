@@ -96,12 +96,12 @@ class CrmRelationship extends RevisionableContentEntityBase implements CrmRelati
       ])
       ->setDisplayConfigurable('view', TRUE);
 
-    $fields['entity_a'] = BaseFieldDefinition::create('entity_reference')
+    $fields['contact_a'] = BaseFieldDefinition::create('entity_reference')
       ->setLabel('Contact A')
       ->setSetting('target_type', 'crm_contact')
       ->setRequired(TRUE);
 
-    $fields['entity_b'] = BaseFieldDefinition::create('entity_reference')
+    $fields['contact_b'] = BaseFieldDefinition::create('entity_reference')
       ->setLabel('Contact B')
       ->setSetting('target_type', 'crm_contact')
       ->setRequired(TRUE);

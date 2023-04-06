@@ -1,0 +1,9 @@
+langcode: en
+status: true
+dependencies: {  }
+id: parent
+label: 'Parent of'
+description: 'Parent/child relationship.'
+contact_type_a: individual
+contact_type_b: individual
+label_b_a: 'Child of'

@@ -1,0 +1,9 @@
+langcode: en
+status: true
+dependencies: {  }
+id: partner
+label: 'Partner of'
+description: 'Partner relationship.'
+contact_type_a: individual
+contact_type_b: individual
+label_b_a: 'Partner of'
