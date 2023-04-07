@@ -14,3 +14,11 @@ crm.admin:
     type: 'new'
   requirements:
     _permission: 'administer comments'
+
+crm.contact_relationship:
+  path: '/crm/contact/{crm_contact}/relationship'
+  defaults:
+    _title: 'Relationships'
+    _controller: '\Drupal\crm\Controller\RelationshipController::build'
+  requirements:
+    _permission: 'access content'
