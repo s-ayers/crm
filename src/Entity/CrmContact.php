@@ -79,12 +79,9 @@ class CrmContact extends RevisionableContentEntityBase implements CrmContactInte
       $formatted_name = NULL;
       $name_array = $this->get('full_name')->getValue();
       if ($name_array != NULL) {
-        dpm($name_array);
-        dpm(__LINE__);
         $name_formatter = \Drupal::service('name.formatter');
-        $formatted_name = $name_formatter->format($name_array, 'default', ['markup' => 'raw']);
-        dpm($formatted_name);
-        // $this->set('label', $formatted_name);
+        $formatted_name = $name_formatter->formatList($name_array);
+        $this->set('name', $formatted_name->__toString());
       }
     }
 

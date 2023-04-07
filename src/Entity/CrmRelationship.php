@@ -78,32 +78,16 @@ class CrmRelationship extends RevisionableContentEntityBase implements CrmRelati
 
     $fields = parent::baseFieldDefinitions($entity_type);
 
-    $fields['label'] = BaseFieldDefinition::create('string')
-      ->setRevisionable(TRUE)
-      ->setTranslatable(TRUE)
-      ->setLabel(t('Label'))
-      ->setRequired(TRUE)
-      ->setSetting('max_length', 255)
-      ->setDisplayOptions('form', [
-        'type' => 'string_textfield',
-        'weight' => -5,
-      ])
-      ->setDisplayConfigurable('form', TRUE)
-      ->setDisplayOptions('view', [
-        'label' => 'hidden',
-        'type' => 'string',
-        'weight' => -5,
-      ])
-      ->setDisplayConfigurable('view', TRUE);
-
     $fields['contact_a'] = BaseFieldDefinition::create('entity_reference')
       ->setLabel('Contact A')
       ->setSetting('target_type', 'crm_contact')
+      ->setDisplayConfigurable('form', TRUE)
       ->setRequired(TRUE);
 
     $fields['contact_b'] = BaseFieldDefinition::create('entity_reference')
       ->setLabel('Contact B')
       ->setSetting('target_type', 'crm_contact')
+      ->setDisplayConfigurable('form', TRUE)
       ->setRequired(TRUE);
 
     $fields['status'] = BaseFieldDefinition::create('boolean')
@@ -129,24 +113,53 @@ class CrmRelationship extends RevisionableContentEntityBase implements CrmRelati
       ])
       ->setDisplayConfigurable('view', TRUE);
 
-    $fields['description'] = BaseFieldDefinition::create('text_long')
+    $fields['start'] = BaseFieldDefinition::create('datetime')
+      ->setLabel(t('Start Date'))
+      ->setDescription(t('When the relationship started.'))
       ->setRevisionable(TRUE)
-      ->setTranslatable(TRUE)
-      ->setLabel(t('Description'))
+      ->setSettings([
+        'datetime_type' => 'date',
+      ])
+      ->setDefaultValue('')
+      ->setDisplayOptions('view', [
+        'label' => 'above',
+        'type' => 'datetime_default',
+        'settings' => [
+          'format_type' => 'medium',
+        ],
+        'weight' => -9,
+      ])
       ->setDisplayOptions('form', [
-        'type' => 'text_textarea',
-        'weight' => 10,
+        'type' => 'datetime_default',
+        'weight' => -9,
       ])
       ->setDisplayConfigurable('form', TRUE)
-      ->setDisplayOptions('view', [
-        'type' => 'text_default',
-        'label' => 'above',
-        'weight' => 10,
-      ])
       ->setDisplayConfigurable('view', TRUE);
 
+    $fields['end'] = BaseFieldDefinition::create('datetime')
+      ->setLabel(t('End Date'))
+      ->setDescription(t('When the relationship ends.'))
+      ->setRevisionable(TRUE)
+      ->setSettings([
+        'datetime_type' => 'date',
+      ])
+      ->setDefaultValue('')
+      ->setDisplayOptions('view', [
+        'label' => 'above',
+        'type' => 'datetime_default',
+        'settings' => [
+          'format_type' => 'medium',
+        ],
+        'weight' => -9,
+      ])
+      ->setDisplayOptions('form', [
+        'type' => 'datetime_default',
+        'weight' => -9,
+      ])
+      ->setDisplayConfigurable('form', TRUE)
+      ->setDisplayConfigurable('view', TRUE);
     $fields['created'] = BaseFieldDefinition::create('created')
-      ->setLabel(t('Authored on'))
+      ->setLabel(t('Created on'))
       ->setTranslatable(TRUE)
       ->setDescription(t('The time that the crm relationship was created.'))
       ->setDisplayOptions('view', [

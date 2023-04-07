@@ -68,10 +68,11 @@ class CrmContactListBuilder extends EntityListBuilder {
    */
   public function buildHeader() {
     $header['id'] = $this->t('ID');
-    $header['label'] = $this->t('Label');
+    $header['name'] = $this->t('Name');
     $header['status'] = $this->t('Status');
     $header['created'] = $this->t('Created');
     $header['changed'] = $this->t('Updated');
+
     return $header + parent::buildHeader();
   }
 
@@ -81,10 +82,11 @@ class CrmContactListBuilder extends EntityListBuilder {
   public function buildRow(EntityInterface $entity) {
     /** @var \Drupal\crm\CrmContactInterface $entity */
     $row['id'] = $entity->id();
-    $row['label'] = $entity->toLink();
-    $row['status'] = $entity->get('status')->value ? $this->t('Enabled') : $this->t('Disabled');
+    $row['name'] = $entity->toLink();
+    $row['status'] = $entity->get('status')->value ? $this->t('Active') : $this->t('Inactive');
     $row['created'] = $this->dateFormatter->format($entity->get('created')->value);
     $row['changed'] = $this->dateFormatter->format($entity->getChangedTime());
+
     return $row + parent::buildRow($entity);
   }
 
