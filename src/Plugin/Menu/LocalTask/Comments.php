@@ -8,6 +8,7 @@ use Drupal\Core\StringTranslation\StringTranslationTrait;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Drupal\comment\CommentStorageInterface;
+use Drupal\comment\CommentInterface;
 
 /**
  * Provides a local task that shows the amount of comments.
@@ -55,7 +56,27 @@ class Comments extends LocalTaskDefault implements ContainerFactoryPluginInterfa
    * {@inheritdoc}
    */
   public function getTitle(Request $request = NULL) {
-    return $this->t('Notes (@count)', ['@count' => 6]);
+    $contact_id = \Drupal::routeMatch()->getParameter('crm_contact');
+    if ($contact_id instanceof \Drupal\crm\CrmContactInterface) {
+      $contact_id = $contact_id->id();
+    }
+    $count = $this->commentStorage->getQuery()
+      ->condition('entity_type', 'crm_contact')
+      ->condition('entity_id', $contact_id)
+      ->condition('status', CommentInterface::PUBLISHED)
+      ->condition('field_name', 'field_notes')
+      ->accessCheck(TRUE)
+      ->count()
+      ->execute();
+
+    return $this->t('Notes (@count)', ['@count' => $count]);
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function getCacheMaxAge() {
+    return 0;
   }
 
 }

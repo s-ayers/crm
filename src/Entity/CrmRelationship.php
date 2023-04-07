@@ -47,7 +47,6 @@ use Drupal\crm\CrmRelationshipInterface;
  *     "revision" = "revision_id",
  *     "langcode" = "langcode",
  *     "bundle" = "bundle",
- *     "label" = "label",
  *     "uuid" = "uuid",
  *   },
  *   revision_metadata_keys = {

@@ -4,3 +4,7 @@ services:
     arguments: ['@config.factory']
     tags:
       - { name: theme_negotiator, priority: -20 }
+
+  crm.relationship:
+    class: Drupal\crm\Relationship
+    arguments: ['@entity_type.manager']
