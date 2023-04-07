@@ -53,7 +53,7 @@ use Drupal\Core\Entity\EntityStorageInterface;
  *     "revision_log_message" = "revision_log",
  *   },
  *   links = {
- *     "collection" = "/admin/content/crm-contact",
+ *     "collection" = "/admin/content/crm/contact",
  *     "add-form" = "/crm/contact/add/{crm_contact_type}",
  *     "add-page" = "/crm/contact/add",
  *     "canonical" = "/crm/contact/{crm_contact}",

@@ -37,10 +37,10 @@ use Drupal\Core\Config\Entity\ConfigEntityBundleBase;
  *     "uuid" = "uuid"
  *   },
  *   links = {
- *     "add-form" = "/admin/structure/crm_contact_types/add",
- *     "edit-form" = "/admin/structure/crm_contact_types/manage/{crm_contact_type}",
- *     "delete-form" = "/admin/structure/crm_contact_types/manage/{crm_contact_type}/delete",
- *     "collection" = "/admin/structure/crm_contact_types"
+ *     "add-form" = "/admin/structure/crm/contact_types/add",
+ *     "edit-form" = "/admin/structure/crm/contact_types/manage/{crm_contact_type}",
+ *     "delete-form" = "/admin/structure/crm/contact_types/manage/{crm_contact_type}/delete",
+ *     "collection" = "/admin/structure/crm/contact_types"
  *   },
  *   config_export = {
  *     "id",

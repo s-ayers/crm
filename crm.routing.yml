@@ -1,15 +1,16 @@
-entity.crm_contact.collection:
-  path: '/crm/contact'
-  defaults:
-    _title: 'Contacts'
-    _entity_list: 'crm_contact'
-  requirements:
-    _permission: 'view any crm_contact entity'
-
 entity.crm_contact_type.collection:
-  path: '/admin/structure/crm-contact-types'
+  path: '/admin/structure/crm/contact-types'
   defaults:
     _title: 'Contact types'
     _entity_list: 'crm_contact_type'
   requirements:
     _permission: 'administer crm_contact types'
+
+crm.admin:
+  path: '/admin/content/crm'
+  defaults:
+    _title: 'Comments'
+    _form: '\Drupal\comment\Form\CommentAdminOverview'
+    type: 'new'
+  requirements:
+    _permission: 'administer comments'

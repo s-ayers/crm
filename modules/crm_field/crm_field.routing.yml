@@ -71,12 +71,20 @@ entity.crm_phone_type.delete_form:
     _permission: 'administer crm_phone_type'
 
 crm.admin_config:
-  path: '/admin/reports/crm'
+  path: '/admin/config/crm'
   defaults:
     _controller: '\Drupal\system\Controller\SystemController::systemAdminMenuBlockPage'
-    _title: 'Knowledge'
+    _title: 'CRM'
   requirements:
-    _permission: 'access knowledge reports'
+    _permission: 'administer crm'
+
+crm.admin_structure:
+  path: '/admin/structure/crm'
+  defaults:
+    _controller: '\Drupal\system\Controller\SystemController::systemAdminMenuBlockPage'
+    _title: 'CRM'
+  requirements:
+    _permission: 'administer crm'
 
 entity.crm_website_type.collection:
   path: '/admin/structure/crm-website-type'
