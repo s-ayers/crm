@@ -1,0 +1,7 @@
+langcode: en
+status: true
+dependencies: {  }
+id: contact_comment
+label: 'Contact Comment'
+target_entity_type_id: crm_contact
+description: ''

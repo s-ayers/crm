@@ -1,7 +1,24 @@
-entity.crm_contact.view:
+entity.crm_contact.canonical:
   title: 'View'
   route_name: entity.crm_contact.canonical
   base_route: entity.crm_contact.canonical
+
+entity.crm_contact.summary:
+  title: 'Summary'
+  route_name: entity.crm_contact.canonical
+  parent_id: entity.crm_contact.canonical
+
+entity.crm_contact.relationships:
+  title: 'Relationships'
+  route_name: entity.crm_contact.canonical
+  parent_id: entity.crm_contact.canonical
+
+view.contact_comment.page_1:
+  title: 'Notes'
+  route_name: view.contact_comment.page_1
+  parent_id: entity.crm_contact.canonical
+
+
 entity.crm_contact.edit_form:
   title: 'Edit'
   route_name: entity.crm_contact.edit_form
