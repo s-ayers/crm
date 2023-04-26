@@ -1,0 +1,17 @@
+<?php
+
+/**
+ * @file
+ * A module implementing node related hooks to test API interaction.
+ */
+
+use Drupal\crm\CrmContactInterface;
+
+/**
+ * Implements hook_ENTITY_TYPE_insert() for node entities.
+ */
+function crm_test_exception_crm_contact_insert(CrmContactInterface $contact) {
+  if ($contact->label() == 'testing_transaction_exception') {
+    throw new Exception('Test exception for rollback.');
+  }
+}

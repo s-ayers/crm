@@ -4,6 +4,7 @@ description: Provides Base fields for CRM entities.
 package: CRM
 core_version_requirement: ^9 || ^10
 dependencies:
+  - drupal:datetime
   - drupal:telephone
   - address:address
 configure: entity.crm_website_type.collection

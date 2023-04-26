@@ -1,0 +1,5 @@
+name: 'CRM module exception tests'
+type: module
+description: 'Support module for crm related exception testing.'
+package: Testing
+version: VERSION
