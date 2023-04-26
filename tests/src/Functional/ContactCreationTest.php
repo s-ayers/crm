@@ -11,7 +11,7 @@ use Drupal\Core\Database\Database;
  *
  * @group crm
  */
-class ContactCreationTest extends BrowserTestBase {
+class ContactCreationTest extends ContactTestBase {
 
   /**
    * {@inheritdoc}
@@ -166,6 +166,32 @@ class ContactCreationTest extends BrowserTestBase {
     $this->submitForm($edit, 'Save');
     $this->assertSession()->pageTextContains('The Created on date is invalid.');
     $this->assertFalse($this->drupalGetContactByName($edit['name[0][value]']));
+  }
+
+  /**
+   * Check crm/contact/add when no contact types exist.
+   */
+  public function testContactAddWithoutContactTypes() {
+    $this->drupalGet('crm/contact/add');
+    $this->assertSession()->statusCodeEquals(200);
+    $this->assertSession()->linkByHrefNotExists('/admin/structure/crm/contact-types/add');
+
+    // Test /crm/contact/add page without content types.
+    foreach (\Drupal::entityTypeManager()->getStorage('crm_contact_type')->loadMultiple() as $entity) {
+      $entity->delete();
+    }
+
+    $this->drupalGet('crm/contact/add');
+    $this->assertSession()->statusCodeEquals(403);
+
+    $admin_contact_types = $this->drupalCreateUser([
+      'administer contact types',
+    ]);
+    $this->drupalLogin($admin_contact_types);
+
+    $this->drupalGet('crm/contact/add');
+
+    $this->assertSession()->linkByHrefExists('/admin/structure/crm/contact_types/add');
   }
 
   /**
