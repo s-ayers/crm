@@ -7,3 +7,5 @@ configure: entity.crm_contact_type.collection
 dependencies:
   - name:name
   - crm:crm_field
+  - core:comment
+  - core:views

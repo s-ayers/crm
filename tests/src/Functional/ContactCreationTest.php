@@ -194,38 +194,4 @@ class ContactCreationTest extends ContactTestBase {
     $this->assertSession()->linkByHrefExists('/admin/structure/crm/contact_types/add');
   }
 
-  /**
-   * Returns the contact by name.
-   */
-  protected function drupalGetContactByName(string $name) {
-    $contact = \Drupal::entityTypeManager()
-      ->getStorage('crm_contact')
-      ->loadByProperties(['name' => $name]);
-    return reset($contact);
-  }
-
-  /**
-   * Gets the watchdog IDs of the records with the rollback exception message.
-   *
-   * @return int[]
-   *   Array containing the IDs of the log records with the rollback exception
-   *   message.
-   */
-  protected static function getWatchdogIdsForTestExceptionRollback() {
-    // PostgreSQL doesn't support bytea LIKE queries, so we need to unserialize
-    // first to check for the rollback exception message.
-    $matches = [];
-    $query = Database::getConnection()->select('watchdog', 'w')
-      ->fields('w', ['wid', 'variables'])
-      ->execute();
-
-    foreach ($query as $row) {
-      $variables = (array) unserialize($row->variables);
-      if (isset($variables['@message']) && $variables['@message'] === 'Test exception for rollback.') {
-        $matches[] = $row->wid;
-      }
-    }
-    return $matches;
-  }
-
 }

@@ -73,6 +73,7 @@ class CrmContact extends RevisionableContentEntityBase implements CrmContactInte
    */
   public function preSave(EntityStorageInterface $storage) {
     parent::preSave($storage);
+    $this->setNewRevision();
 
     // If type is individual, set the label field to the name field.
     if ($this->bundle() == 'individual') {
