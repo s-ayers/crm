@@ -89,12 +89,6 @@ class CRMTelephoneWidget extends WidgetBase {
       '#default_value' => isset($items[$delta]->primary) ? $items[$delta]->primary : NULL,
     ];
 
-    $element['billing'] = [
-      '#type' => 'checkbox',
-      '#title' => $this->t('Billing'),
-      '#default_value' => isset($items[$delta]->billing) ? $items[$delta]->billing : NULL,
-    ];
-
     $element['mobile_provider_id'] = [
       '#type' => 'select',
       '#title' => $this->t('Mobile Provider'),
@@ -135,9 +129,6 @@ class CRMTelephoneWidget extends WidgetBase {
       }
       if ($value['primary'] === '') {
         $values[$delta]['primary'] = NULL;
-      }
-      if ($value['billing'] === '') {
-        $values[$delta]['billing'] = NULL;
       }
       if ($value['mobile_provider_id'] === '') {
         $values[$delta]['mobile_provider_id'] = NULL;

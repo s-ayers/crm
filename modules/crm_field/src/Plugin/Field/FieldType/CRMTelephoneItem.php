@@ -95,8 +95,6 @@ class CRMTelephoneItem extends FieldItemBase {
       ->setLabel(t('Location'));
     $properties['primary'] = DataDefinition::create('boolean')
       ->setLabel(t('Primary'));
-    $properties['billing'] = DataDefinition::create('boolean')
-      ->setLabel(t('Billing'));
     $properties['mobile_provider_id'] = DataDefinition::create('string')
       ->setLabel(t('Mobile Provider'));
 
@@ -151,10 +149,6 @@ class CRMTelephoneItem extends FieldItemBase {
         'type' => 'int',
         'size' => 'tiny',
       ],
-      'billing' => [
-        'type' => 'int',
-        'size' => 'tiny',
-      ],
       'mobile_provider_id' => [
         'type' => 'varchar',
         'length' => 255,
@@ -185,8 +179,6 @@ class CRMTelephoneItem extends FieldItemBase {
     $values['location_id'] = $random->word(mt_rand(1, 255));
 
     $values['primary'] = (bool) mt_rand(0, 1);
-
-    $values['billing'] = (bool) mt_rand(0, 1);
 
     $values['mobile_provider_id'] = array_rand(self::allowedMobileProviderValues());
 

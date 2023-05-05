@@ -72,12 +72,6 @@ class EmailWidget extends WidgetBase {
       '#default_value' => isset($items[$delta]->primary) ? $items[$delta]->primary : NULL,
     ];
 
-    $element['billing'] = [
-      '#type' => 'checkbox',
-      '#title' => $this->t('Billing'),
-      '#default_value' => isset($items[$delta]->billing) ? $items[$delta]->billing : NULL,
-    ];
-
     $element['hold'] = [
       '#type' => 'checkbox',
       '#title' => $this->t('Hold'),
@@ -163,9 +157,6 @@ class EmailWidget extends WidgetBase {
       }
       if ($value['primary'] === '') {
         $values[$delta]['primary'] = NULL;
-      }
-      if ($value['billing'] === '') {
-        $values[$delta]['billing'] = NULL;
       }
       if ($value['hold'] === '') {
         $values[$delta]['hold'] = NULL;

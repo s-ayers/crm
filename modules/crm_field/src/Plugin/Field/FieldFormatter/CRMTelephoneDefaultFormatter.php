@@ -99,12 +99,6 @@ class CRMTelephoneDefaultFormatter extends FormatterBase {
         '#markup' => $item->primary ? $this->t('Yes') : $this->t('No'),
       ];
 
-      $element[$delta]['billing'] = [
-        '#type' => 'item',
-        '#title' => $this->t('Billing'),
-        '#markup' => $item->billing ? $this->t('Yes') : $this->t('No'),
-      ];
-
       if ($item->mobile_provider_id) {
         $allowed_values = CRMTelephoneItem::allowedMobileProviderValues();
         $element[$delta]['mobile_provider_id'] = [

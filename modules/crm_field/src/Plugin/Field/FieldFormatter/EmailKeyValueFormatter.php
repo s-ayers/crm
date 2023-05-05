@@ -90,26 +90,6 @@ class EmailKeyValueFormatter extends FormatterBase {
         ];
       }
 
-      // Billing.
-      if ($item->billing) {
-        $table['#rows'][] = [
-          'data' => [
-            [
-              'header' => TRUE,
-              'data' => [
-                '#markup' => $this->t('Billing'),
-              ],
-            ],
-            [
-              'data' => [
-                '#markup' => $item->billing ? $this->t('Yes') : $this->t('No'),
-              ],
-            ],
-          ],
-          'no_striping' => TRUE,
-        ];
-      }
-
       // Hold.
       if ($item->hold) {
         $table['#rows'][] = [

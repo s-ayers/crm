@@ -92,8 +92,6 @@ class EmailItem extends FieldItemBase {
       ->setLabel(t('Location'));
     $properties['primary'] = DataDefinition::create('boolean')
       ->setLabel(t('Primary'));
-    $properties['billing'] = DataDefinition::create('boolean')
-      ->setLabel(t('Billing'));
     $properties['hold'] = DataDefinition::create('boolean')
       ->setLabel(t('Hold'));
     $properties['bulk'] = DataDefinition::create('boolean')
@@ -142,10 +140,6 @@ class EmailItem extends FieldItemBase {
         'type' => 'int',
         'size' => 'tiny',
       ],
-      'billing' => [
-        'type' => 'int',
-        'size' => 'tiny',
-      ],
       'hold' => [
         'type' => 'int',
         'size' => 'tiny',
@@ -184,8 +178,6 @@ class EmailItem extends FieldItemBase {
     $values['location_id'] = $random->word(mt_rand(1, 255));
 
     $values['primary'] = (bool) mt_rand(0, 1);
-
-    $values['billing'] = (bool) mt_rand(0, 1);
 
     $values['hold'] = (bool) mt_rand(0, 1);
 

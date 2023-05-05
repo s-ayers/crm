@@ -45,9 +45,6 @@ field.value.crm_email:
     primary:
       type: boolean
       label: Primary
-    billing:
-      type: boolean
-      label: Billing
     hold:
       type: boolean
       label: Hold
@@ -132,9 +129,6 @@ field.value.crm_telephone:
     primary:
       type: boolean
       label: Primary
-    billing:
-      type: boolean
-      label: Billing
     mobile_provider_id:
       type: string
       label: Mobile Provider

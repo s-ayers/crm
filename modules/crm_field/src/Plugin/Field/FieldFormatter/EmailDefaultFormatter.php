@@ -82,14 +82,6 @@ class EmailDefaultFormatter extends FormatterBase {
         ];
       }
 
-      if ($item->billing) {
-        $element[$delta]['billing'] = [
-          '#type' => 'item',
-          '#title' => $this->t('Billing'),
-          '#markup' => $item->billing ? $this->t('Yes') : $this->t('No'),
-        ];
-      }
-
       if ($item->hold) {
         $element[$delta]['hold'] = [
           '#type' => 'item',

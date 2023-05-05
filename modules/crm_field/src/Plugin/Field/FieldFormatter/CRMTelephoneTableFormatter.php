@@ -28,7 +28,6 @@ class CRMTelephoneTableFormatter extends FormatterBase {
     $header[] = $this->t('Type');
     $header[] = $this->t('Location');
     $header[] = $this->t('Primary');
-    $header[] = $this->t('Billing');
     $header[] = $this->t('Mobile Provider');
 
     $table = [
@@ -56,8 +55,6 @@ class CRMTelephoneTableFormatter extends FormatterBase {
       $row[]['#markup'] = $item->location_id;
 
       $row[]['#markup'] = $item->primary ? $this->t('Yes') : $this->t('No');
-
-      $row[]['#markup'] = $item->billing ? $this->t('Yes') : $this->t('No');
 
       if ($item->mobile_provider_id) {
         $allowed_values = CRMtelephoneItem::allowedMobileProviderValues();

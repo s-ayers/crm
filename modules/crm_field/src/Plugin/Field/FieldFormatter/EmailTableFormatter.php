@@ -26,7 +26,6 @@ class EmailTableFormatter extends FormatterBase {
     $header[] = $this->t('Email');
     $header[] = $this->t('Location');
     $header[] = $this->t('Primary');
-    $header[] = $this->t('Billing');
     $header[] = $this->t('Hold');
     $header[] = $this->t('Bulk');
     $header[] = $this->t('Hold Date');
@@ -47,8 +46,6 @@ class EmailTableFormatter extends FormatterBase {
       $row[]['#markup'] = $item->location_id;
 
       $row[]['#markup'] = $item->primary ? $this->t('Yes') : $this->t('No');
-
-      $row[]['#markup'] = $item->billing ? $this->t('Yes') : $this->t('No');
 
       $row[]['#markup'] = $item->hold ? $this->t('Yes') : $this->t('No');
 
