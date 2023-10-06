@@ -1,0 +1,21 @@
+crm_case.crm_case_encounter.*:
+  type: config_entity
+  label: Encounter
+  mapping:
+    id:
+      type: string
+      label: ID
+    label:
+      type: label
+      label: Label
+    uuid:
+      type: string
+    description:
+      type: string
+      label: Description
+    weight:
+      type: integer
+      label: Weight
+    default:
+      type: boolean
+      label: Default

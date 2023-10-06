@@ -1,0 +1,12 @@
+crm_case.crm_case_type.*:
+  type: config_entity
+  label: 'Crm Case type config'
+  mapping:
+    id:
+      type: string
+      label: 'ID'
+    label:
+      type: label
+      label: 'Label'
+    uuid:
+      type: string

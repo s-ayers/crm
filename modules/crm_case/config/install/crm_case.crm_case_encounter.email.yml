@@ -1,0 +1,8 @@
+langcode: en
+status: true
+dependencies: {  }
+id: email
+label: Email
+description: ''
+weight: 2
+default: false

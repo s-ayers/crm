@@ -1,0 +1,11 @@
+entity.crm_case_type.collection:
+  title: 'Case types'
+  description: 'Manage and CRUD actions on Crm Case type.'
+  parent: crm.admin_structure
+  route_name: entity.crm_case_type.collection
+
+entity.crm_case_encounter.overview:
+  title: Encounters
+  parent: crm.admin_structure
+  description: 'List of encounters to extend site functionality.'
+  route_name: entity.crm_case_encounter.collection

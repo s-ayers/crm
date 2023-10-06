@@ -1,0 +1,17 @@
+crm_case.type_add:
+  title: 'Add crm case type'
+  route_name: entity.crm_case_type.add_form
+  appears_on:
+    - entity.crm_case_type.collection
+
+crm_case.add_page:
+  title: 'Add crm case'
+  route_name: entity.crm_case.add_page
+  appears_on:
+    - entity.crm_case.collection
+
+entity.crm_case_encounter.add_form:
+  route_name: 'entity.crm_case_encounter.add_form'
+  title: 'Add encounter'
+  appears_on:
+    - entity.crm_case_encounter.collection

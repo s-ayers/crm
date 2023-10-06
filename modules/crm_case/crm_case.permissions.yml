@@ -1,0 +1,15 @@
+administer crm case types:
+  title: 'Administer crm case types'
+  description: 'Maintain the types of crm case entity.'
+  restrict access: true
+delete crm case:
+  title: Delete crm case
+create crm case:
+  title: Create crm case
+view crm case:
+  title: View crm case
+edit crm case:
+  title: Edit crm case
+
+administer crm_case_encounter:
+  title: 'Administer encounter'

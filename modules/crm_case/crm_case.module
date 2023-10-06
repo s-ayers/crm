@@ -1,0 +1,92 @@
+<?php
+
+/**
+ * @file
+ * Primary module hooks for CRM Case module.
+ */
+
+use Drupal\Core\Render\Element;
+use Drupal\crm_case\Entity\CrmCase;
+use Drupal\user\UserInterface;
+
+/**
+ * Implements hook_theme().
+ */
+function crm_case_theme() {
+  return [
+    'crm_case' => [
+      'render element' => 'elements',
+    ],
+  ];
+}
+
+/**
+ * Prepares variables for crm case templates.
+ *
+ * Default template: crm-case.html.twig.
+ *
+ * @param array $variables
+ *   An associative array containing:
+ *   - elements: An associative array containing the crm case information and any
+ *     fields attached to the entity.
+ *   - attributes: HTML attributes for the containing element.
+ */
+function template_preprocess_crm_case(array &$variables) {
+  $variables['view_mode'] = $variables['elements']['#view_mode'];
+  foreach (Element::children($variables['elements']) as $key) {
+    $variables['content'][$key] = $variables['elements'][$key];
+  }
+}
+
+/**
+ * Implements hook_user_cancel().
+ */
+function crm_case_user_cancel($edit, UserInterface $account, $method) {
+  switch ($method) {
+    case 'user_cancel_block_unpublish':
+      // Unpublish crm cases.
+      $storage = \Drupal::entityTypeManager()->getStorage('crm_case');
+      $crm_case_ids = $storage->getQuery()
+        ->condition('uid', $account->id())
+        ->condition('status', 1)
+        ->execute();
+      foreach ($storage->loadMultiple($crm_case_ids) as $crm_case) {
+        $crm_case->set('status', FALSE);
+        $crm_case->save();
+      }
+      break;
+
+    case 'user_cancel_reassign':
+      // Anonymize crm cases.
+      $storage = \Drupal::entityTypeManager()->getStorage('crm_case');
+      $crm_case_ids = $storage->getQuery()
+        ->condition('uid', $account->id())
+        ->execute();
+      foreach ($storage->loadMultiple($crm_case_ids) as $crm_case) {
+        $crm_case->setOwnerId(0);
+        $crm_case->save();
+      }
+      break;
+  }
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_predelete() for user entities.
+ */
+function crm_case_user_predelete(UserInterface $account) {
+  // Delete crm cases.
+  $storage = \Drupal::entityTypeManager()->getStorage('crm_case');
+  $crm_case_ids = $storage->getQuery()
+    ->condition('uid', $account->id())
+    ->execute();
+  $crm_cases = $storage->loadMultiple($crm_case_ids);
+  $storage->delete($crm_cases);
+  // Delete old revisions.
+  $crm_case_ids = $storage->getQuery()
+    ->allRevisions()
+    ->condition('uid', $account->id())
+    ->execute();
+  foreach (array_keys($crm_case_ids) as $revision_id) {
+    $storage->deleteRevision($revision_id);
+  }
+}

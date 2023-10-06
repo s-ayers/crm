@@ -1,0 +1,33 @@
+entity.crm_case.view:
+  title: 'View'
+  route_name: entity.crm_case.canonical
+  base_route: entity.crm_case.canonical
+entity.crm_case.edit_form:
+  title: 'Edit'
+  route_name: entity.crm_case.edit_form
+  base_route: entity.crm_case.canonical
+entity.crm_case.delete_form:
+  title: 'Delete'
+  route_name: entity.crm_case.delete_form
+  base_route: entity.crm_case.canonical
+  weight: 10
+entity.crm_case.collection:
+  title: 'Cases'
+  route_name: entity.crm_case.collection
+  # base_route: system.admin_content
+  parent_id: crm.admin
+  weight: 10
+entity.crm_case_type.edit_form:
+  title: 'Edit'
+  route_name: entity.crm_case_type.edit_form
+  base_route: entity.crm_case_type.edit_form
+entity.crm_case_type.collection:
+  title: 'List'
+  route_name: entity.crm_case_type.collection
+  base_route: entity.crm_case_type.collection
+
+# entity.crm_case.collection:
+#   title: 'Relationships'
+#   route_name: crm.contact_relationship
+#   class: Drupal\crm\Plugin\Menu\LocalTask\Relationships
+#   parent_id: entity.crm_contact.canonical

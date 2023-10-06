@@ -1,0 +1,8 @@
+name: CRM Case
+type: module
+description: A tool for tracking and managing sequences of interactions between people in your organisation and contacts.
+package: CRM
+core_version_requirement: ^9 || ^10
+dependencies:
+  - crm:crm
+configure: entity.crm_case_encounter.collection

@@ -1,0 +1,31 @@
+entity.crm_case_encounter.collection:
+  path: '/admin/structure/crm-case-encounter'
+  defaults:
+    _entity_list: 'crm_case_encounter'
+    _title: 'Encounter configuration'
+  requirements:
+    _permission: 'administer crm_case_encounter'
+
+entity.crm_case_encounter.add_form:
+  path: '/admin/structure/crm_case_encounter/add'
+  defaults:
+    _entity_form: 'crm_case_encounter.add'
+    _title: 'Add an encounter'
+  requirements:
+    _permission: 'administer crm_case_encounter'
+
+entity.crm_case_encounter.edit_form:
+  path: '/admin/structure/crm-case-encounter/{crm_case_encounter}'
+  defaults:
+    _entity_form: 'crm_case_encounter.edit'
+    _title: 'Edit an encounter'
+  requirements:
+    _permission: 'administer crm_case_encounter'
+
+entity.crm_case_encounter.delete_form:
+  path: '/admin/structure/crm-case-encounter/{crm_case_encounter}/delete'
+  defaults:
+    _entity_form: 'crm_case_encounter.delete'
+    _title: 'Delete an encounter'
+  requirements:
+    _permission: 'administer crm_case_encounter'

@@ -1,0 +1,8 @@
+langcode: en
+status: true
+dependencies: {  }
+id: letter_mail
+label: 'Letter Mail'
+description: ''
+weight: 4
+default: false

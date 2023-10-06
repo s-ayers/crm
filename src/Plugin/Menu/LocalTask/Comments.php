@@ -19,7 +19,7 @@ class Comments extends LocalTaskDefault implements ContainerFactoryPluginInterfa
   /**
    * The comment storage service.
    *
-   * @var \Drupal\comment\CommentStorageInterface|null
+   * @var \Drupal\comment\CommentStorageInterface
    */
   protected $commentStorage;
 
@@ -32,10 +32,10 @@ class Comments extends LocalTaskDefault implements ContainerFactoryPluginInterfa
    *   The plugin_id for the plugin instance.
    * @param array $plugin_definition
    *   The plugin implementation definition.
-   * @param \Drupal\comment\CommentStorageInterface|null $comment_storage
-   *   The comment storage service, or NULL if the Comment module is not installed.
+   * @param \Drupal\comment\CommentStorageInterface $comment_storage
+   *   The comment storage service.
    */
-  public function __construct(array $configuration, $plugin_id, array $plugin_definition, CommentStorageInterface $comment_storage = NULL) {
+  public function __construct(array $configuration, $plugin_id, array $plugin_definition, CommentStorageInterface $comment_storage) {
     parent::__construct($configuration, $plugin_id, $plugin_definition);
     $this->commentStorage = $comment_storage;
   }
@@ -43,16 +43,12 @@ class Comments extends LocalTaskDefault implements ContainerFactoryPluginInterfa
   /**
    * {@inheritdoc}
    */
-  public static function create(ContainerInterface $container, array $configuration, $plugin_id, array $plugin_definition) {
-    $comment_storage = NULL;
-    if ($container->has('entity_type.manager') && $container->get('entity_type.manager')->hasDefinition('comment')) {
-      $comment_storage = $container->get('entity_type.manager')->getStorage('comment');
-    }
+  public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition) {
     return new static(
       $configuration,
       $plugin_id,
       $plugin_definition,
-      $comment_storage
+      $container->get('entity_type.manager')->getStorage('comment')
     );
   }
 
@@ -60,10 +56,6 @@ class Comments extends LocalTaskDefault implements ContainerFactoryPluginInterfa
    * {@inheritdoc}
    */
   public function getTitle(Request $request = NULL) {
-    if (!$this->commentStorage) {
-      return $this->t('Notes (0)');
-    }
-
     $contact_id = \Drupal::routeMatch()->getParameter('crm_contact');
     if ($contact_id instanceof \Drupal\crm\CrmContactInterface) {
       $contact_id = $contact_id->id();

@@ -4,7 +4,7 @@ entity.crm_contact_type.collection:
     _title: 'Contact types'
     _entity_list: 'crm_contact_type'
   requirements:
-    _permission: 'administer crm_contact types'
+    _permission: 'administer contact types'
 
 crm.admin:
   path: '/admin/content/crm'

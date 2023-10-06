@@ -16,16 +16,16 @@ class CrmContactForm extends ContentEntityForm {
   public function save(array $form, FormStateInterface $form_state) {
 
 
-    $entity = $this->getEntity();
+    $contact = $this->getEntity();
     // Set new Revision.
-    $entity->setNewRevision();
+    $contact->setNewRevision();
 
     $result = parent::save($form, $form_state);
 
-    $message_arguments = ['%label' => $entity->toLink()->toString()];
+    $message_arguments = ['%label' => $contact->toLink()->toString()];
     $logger_arguments = [
-      '%label' => $entity->label(),
-      'link' => $entity->toLink($this->t('View'))->toString(),
+      '%label' => $contact->label(),
+      'link' => $contact->toLink($this->t('View'))->toString(),
     ];
 
     switch ($result) {
@@ -41,8 +41,23 @@ class CrmContactForm extends ContentEntityForm {
     }
 
     $form_state->setRedirect('entity.crm_contact.canonical', [
-      'crm_contact' => $entity->id(),
+      'crm_contact' => $contact->id(),
     ]);
+
+    if ($contact->id()) {
+      $form_state->setValue('id', $contact->id());
+      $form_state->set('id', $contact->id());
+      if ($contact->access('view')) {
+        $form_state->setRedirect(
+          'entity.crm_contact.canonical',
+          ['crm_contact' => $contact->id()]
+        );
+      }
+      else {
+        $form_state->setRedirect('<front>');
+      }
+
+    }
 
     return $result;
   }

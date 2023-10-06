@@ -84,7 +84,7 @@ class CRMTelephoneWidget extends WidgetBase {
 
     $element['primary'] = [
       '#type' => 'radios',
-      '#options' => [1 => $this->t('Primary')],
+      '#options' => [$delta => $this->t('Primary')],
       '#title' => $this->t('Primary'),
       '#default_value' => isset($items[$delta]->primary) ? $items[$delta]->primary : NULL,
     ];
